@@ -195,12 +195,12 @@ pub struct ListingView {
     /// Whether or not the item is being sold on a mannequin.
     pub on_mannequin: bool,
     /// The city ID of the retainer. This is a game ID, all possible values can be seen at
-    /// https:///xivapi.com/Town.
+    /// https://xivapi.com/Town.
     ///
     /// Limsa Lominsa = 1
     /// Gridania = 2
     /// Ul'dah = 3
-    // ishgard = 4
+    /// Ishgard = 4
     /// Kugane = 7
     /// Crystarium = 10
     /// Old Sharlayan = 12
