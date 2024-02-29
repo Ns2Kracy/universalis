@@ -5,13 +5,13 @@ use serde::{Deserialize, Serialize};
 /// https://docs.universalis.app/#schema-contentview
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ContentView {
-    /// The content ID of the serde_json::Value.
+    /// The content ID of the object.
     #[serde(rename = "contentID")]
     pub content_id: Option<String>,
-    /// The content type of this serde_json::Value.
+    /// The content type of this object.
     #[serde(rename = "contentType")]
     pub content_type: Option<String>,
-    /// The character name associated with this character serde_json::Value, if this is one.
+    /// The character name associated with this character object, if this is one.
     #[serde(rename = "characterName")]
     pub character_name: Option<String>,
 }
