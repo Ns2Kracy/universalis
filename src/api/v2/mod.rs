@@ -15,7 +15,7 @@ pub mod user_lists;
 pub mod world_upload_counts;
 pub mod worlds;
 
-use crate::concat_endpoint;
+use crate::{client::Client, concat_endpoint};
 
 /// GET - /api/v2/extra/stats/trade-volume
 pub const TRADE_VOLUME: &str = concat_endpoint!("/api/v2/trade-volume");
@@ -51,3 +51,10 @@ pub const UPLOAD_COUNTS_BY_WORLD: &str =
 pub const UPLOADS_PER_DAY: &str = concat_endpoint!("/api/v2/extra/stats/upload-history");
 /// GET - /api/v2/lists/{listId}
 pub const USER_LISTS: &str = concat_endpoint!("/api/v2/lists/{}");
+
+pub struct ApiV2 {
+    pub client: Client,
+}
+
+impl ApiV2 {
+}

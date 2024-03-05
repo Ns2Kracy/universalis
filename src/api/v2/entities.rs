@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
-// TODO: Need to confirm whether Object in the https:///docs.universalis.app/ should be serde_json:Value
+// TODO: Need to confirm whether Object in the See <https:///docs.universalis.app/ should be serde_json:Value
 
-/// https://docs.universalis.app/#schema-contentview
+/// See <See <https://docs.universalis.app/#schema-contentview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ContentView {
     /// The content ID of the object.
@@ -16,7 +16,7 @@ pub struct ContentView {
     pub character_name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-currentlyshownmultiviewv2
+/// See <https://docs.universalis.app/#schema-currentlyshownmultiviewv2>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CurrentlyShownMultiViewV2 {
     /// The item IDs that were requested.
@@ -41,7 +41,7 @@ pub struct CurrentlyShownMultiViewV2 {
     pub world_name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-currentlyshownview
+/// See <https://docs.universalis.app/#schema-currentlyshownview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CurrentlyShownView {
     /// The item ID.
@@ -146,7 +146,7 @@ pub struct CurrentlyShownView {
     pub units_sold: i32, // int32
 }
 
-/// https://docs.universalis.app/#schema-datacenter
+/// See <https://docs.universalis.app/#schema-datacenter>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DataCenter {
     pub name: Option<String>,
@@ -154,7 +154,7 @@ pub struct DataCenter {
     pub worlds: Option<Vec<i32>>,
 }
 
-/// https://docs.universalis.app/#schema-historymultiviewv2
+/// See <https://docs.universalis.app/#schema-historymultiviewv2>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HistoryMultiViewV2 {
     /// The item IDs that were requested.
@@ -179,7 +179,7 @@ pub struct HistoryMultiViewV2 {
     pub world_name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-historyview
+/// See <https://docs.universalis.app/#schema-historyview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HistoryView {
     /// The item ID.
@@ -222,7 +222,7 @@ pub struct HistoryView {
     pub world_name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-listingview
+/// See <https://docs.universalis.app/#schema-listingview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ListingView {
     /// The time that this listing was posted, in seconds since the UNIX epoch.
@@ -262,7 +262,7 @@ pub struct ListingView {
     #[serde(rename = "onMannequin")]
     pub on_mannequin: bool,
     /// The city ID of the retainer. This is a game ID, all possible values can be seen at
-    /// https://xivapi.com/Town.
+    /// <https://xivapi.com/Town>.
     ///
     /// Limsa Lominsa = 1
     /// Gridania = 2
@@ -288,7 +288,7 @@ pub struct ListingView {
     pub tax: i32, // int32
 }
 
-/// https://docs.universalis.app/#schema-materiaview
+/// See <https://docs.universalis.app/#schema-materiaview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MateriaView {
     /// The materia slot.
@@ -299,7 +299,7 @@ pub struct MateriaView {
     pub materia_id: i32, // int32
 }
 
-/// https://docs.universalis.app/#schema-minimizedsaleview
+/// See <https://docs.universalis.app/#schema-minimizedsaleview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MinimizedSaleView {
     /// Whether or not the item was high-quality.
@@ -325,14 +325,14 @@ pub struct MinimizedSaleView {
     pub world_id: Option<i32>, // int32
 }
 
-/// https://docs.universalis.app/#schema-mostrecentlyupdateditemsview
+/// See <https://docs.universalis.app/#schema-mostrecentlyupdateditemsview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MostRecentlyUpdatedItemsView {
     /// A list of item upload information in timestamp-descending order.
     pub items: Option<Vec<WorldItemRecencyView>>,
 }
 
-/// https://docs.universalis.app/#schema-problemdetails
+/// See <https://docs.universalis.app/#schema-problemdetails>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProblemDetails {
     pub r#type: Option<String>,
@@ -342,14 +342,14 @@ pub struct ProblemDetails {
     pub instance: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-recentlyupdateditemsview
+/// See <https://docs.universalis.app/#schema-recentlyupdateditemsview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RecentlyUpdatedItemsView {
     /// A list of item IDs, with the most recent first.
     items: Option<Vec<i32>>,
 }
 
-/// https://docs.universalis.app/#schema-saleview
+/// See <https://docs.universalis.app/#schema-saleview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SaleView {
     /// Whether or not the item was high-quality.
@@ -377,7 +377,7 @@ pub struct SaleView {
     pub total: i32, // int32
 }
 
-/// https://docs.universalis.app/#schema-sourceuploadcountview
+/// See <https://docs.universalis.app/#schema-sourceuploadcountview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SourceUploadCountView {
     /// The name of the client application.
@@ -388,7 +388,7 @@ pub struct SourceUploadCountView {
     pub upload_count: i32,
 }
 
-/// https://docs.universalis.app/#schema-taxratesview
+/// See <https://docs.universalis.app/#schema-taxratesview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TaxRatesView {
     /// The percent retainer tax in Limsa Lominsa.
@@ -414,7 +414,7 @@ pub struct TaxRatesView {
     pub old_sharlayan: i32, // int32
 }
 
-/// https://docs.universalis.app/#schema-tradevolumeview
+/// See <https://docs.universalis.app/#schema-tradevolumeview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TradeVolumeView {
     /// The i32 of units sold over the query interval.
@@ -427,7 +427,7 @@ pub struct TradeVolumeView {
     pub to: i64, // int64
 }
 
-/// https://docs.universalis.app/#schema-uploadcounthistoryview
+/// See <https://docs.universalis.app/#schema-uploadcounthistoryview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UploadCountHistoryView {
     /// The list of upload counts per day, over the past 30 days.
@@ -435,7 +435,7 @@ pub struct UploadCountHistoryView {
     pub upload_count_by_day: Option<Vec<i32>>,
 }
 
-/// https://docs.universalis.app/#schema-userlistview
+/// See <https://docs.universalis.app/#schema-userlistview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UserListView {
     /// The list's ID.
@@ -451,14 +451,14 @@ pub struct UserListView {
     pub item_ids: Option<Vec<i32>>,
 }
 
-/// https://docs.universalis.app/#schema-world
+/// See <https://docs.universalis.app/#schema-world>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct World {
     pub id: i32, // int32
     pub name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-worlditemrecencyview
+/// See <https://docs.universalis.app/#schema-worlditemrecencyview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct WorldItemRecencyView {
     /// The item ID.
@@ -475,7 +475,7 @@ pub struct WorldItemRecencyView {
     pub world_name: Option<String>,
 }
 
-/// https://docs.universalis.app/#schema-worlduploadcountview
+/// See <https://docs.universalis.app/#schema-worlduploadcountview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct WorldUploadCountView {
     /// The i32 of times an upload has occurred on this world.
