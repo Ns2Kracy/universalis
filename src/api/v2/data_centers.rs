@@ -1,6 +1,11 @@
-/// Available data centers
-/// 
-/// GET - /api/v2/data-centers
-/// 
-/// Returns the content object associated with the provided content ID. Please note that this endpoint is largely untested, and may return inconsistent data at times.
-pub struct GetAvailableDataCenters {}
+use serde::{Deserialize, Serialize};
+
+
+
+/// See <https://docs.universalis.app/#schema-datacenter>
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DataCenter {
+    pub name: Option<String>,
+    pub region: Option<String>,
+    pub worlds: Option<Vec<i32>>,
+}

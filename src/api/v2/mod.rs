@@ -1,3 +1,7 @@
+use crate::BASE_URL;
+
+use self::{data_centers::DataCenter, trade_volume::GetTradeVolume};
+
 pub mod content;
 pub mod data_centers;
 pub mod entities;
@@ -15,46 +19,63 @@ pub mod user_lists;
 pub mod world_upload_counts;
 pub mod worlds;
 
-use crate::{client::Client, concat_endpoint};
-
-/// GET - /api/v2/extra/stats/trade-volume
-pub const TRADE_VOLUME: &str = concat_endpoint!("/api/v2/trade-volume");
-/// GET - /api/v2/data-centers
-pub const AVAILABLE_DATA_CENTERS: &str = concat_endpoint!("/api/v2/data-centers");
-/// GET - /api/v2/worlds
-pub const AVAILABLE_WORLDS: &str = concat_endpoint!("/api/v2/worlds");
-/// GET - /api/v2/extra/content/{contentId}
-pub const GAME_ENTITIES: &str = concat_endpoint!("/api/v2/extra/content/{}");
-/// GET - /api/v2/extra/stats/least-recently-updated
-pub const LEAST_RECENTLY_UPDATED_ITEMS: &str =
-    concat_endpoint!("/api/v2/extra/stats/least-recently-updated");
-/// GET - /api/v2/{worldDcRegion}/{itemIds}
-pub const MARKET_BOARD_CURRENT_DATA: &str = concat_endpoint!("/api/v2/{}/{}");
-/// GET - /api/v2/history/{worldDcRegion}/{itemIds}
-pub const MARKET_BOARD_SALE_HISTORY: &str = concat_endpoint!("/api/v2/history/{}/{}");
-/// GET - /api/v2/tax-rates
-pub const MARKET_TAX_RATES: &str = concat_endpoint!("/api/v2/tax-rates");
-/// GET - /api/v2/marketable
-pub const MARKETABLE_ITEMS: &str = concat_endpoint!("/api/v2/marketable");
-/// GET - /api/v2/extra/stats/most-recently-updated
-pub const MOST_RECENTLY_UPDATED_ITEMS: &str =
-    concat_endpoint!("/api/v2/extra/stats/most-recently-updated");
-/// GET - /api/v2/extra/stats/recently-updated
-pub const RECENTLY_UPDATED_ITEMS: &str = concat_endpoint!("/api/v2/extra/stats/recently-updated");
-/// GET - /api/v2/extra/stats/uploader-upload-counts
-pub const UPLOAD_COUNTS_BY_UPLOAD_APPLICATION: &str =
-    concat_endpoint!("/api/v2/extra/stats/uploader-upload-counts");
-/// GET - /api/v2/extra/stats/world-upload-counts
-pub const UPLOAD_COUNTS_BY_WORLD: &str =
-    concat_endpoint!("/api/v2/extra/stats/world-upload-counts");
-/// GET - /api/v2/extra/stats/upload-history
-pub const UPLOADS_PER_DAY: &str = concat_endpoint!("/api/v2/extra/stats/upload-history");
-/// GET - /api/v2/lists/{listId}
-pub const USER_LISTS: &str = concat_endpoint!("/api/v2/lists/{}");
-
-pub struct ApiV2 {
-    pub client: Client,
+#[derive(Debug, Default)]
+pub struct UniversalisV2 {
+    pub base_url: String,
+    pub client: reqwest::Client,
 }
+impl UniversalisV2 {
+    pub fn new() -> Self {
+        Self {
+            base_url: BASE_URL.to_string(),
+            client: reqwest::Client::new(),
+        }
+    }
 
-impl ApiV2 {
+    /// (Unstable) Trade volume
+    ///
+    /// GET - /api/v2/extra/stats/trade-volume
+    ///
+    /// Retrieves the unit trade volume (total units sold)
+    /// and Gil trade volume (total Gil exchanged) of the specified item over the provided period.
+    /// Tax is not included in this calculation.
+    pub async fn get_trade_volume(&self, _params: GetTradeVolume) {}
+
+    /// Available data centers
+    ///
+    /// GET - /api/v2/data-centers
+    ///
+    /// Returns the content object associated with the provided content ID.
+    /// Please note that this endpoint is largely untested, and may return inconsistent data at times.
+    pub async fn get_available_data_centers(&self) -> anyhow::Result<Vec<DataCenter>> {
+        let url = format!("{}/api/v2/data-centers", self.base_url);
+        let response = self.client.get(&url).send().await?.json().await?;
+        Ok(response)
+    }
+
+    pub async fn get_available_worlds(&self) {}
+
+    pub async fn get_game_entities(&self) {}
+
+    pub async fn get_least_recently_updated_items(&self) {}
+
+    pub async fn get_market_board_current_data(&self) {}
+
+    pub async fn get_market_board_sale_history(&self) {}
+
+    pub async fn get_market_tax_rates(&self) {}
+
+    pub async fn get_marketable_items(&self) {}
+
+    pub async fn get_most_recently_updated_items(&self) {}
+
+    pub async fn get_recently_updated_items(&self) {}
+
+    pub async fn get_upload_counts_by_upload_application(&self) {}
+
+    pub async fn get_upload_counts_by_world(&self) {}
+
+    pub async fn get_uploads_per_day(&self) {}
+
+    pub async fn get_user_lists(&self) {}
 }

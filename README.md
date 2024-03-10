@@ -14,7 +14,7 @@ Table of contents
 
 Endpoints
 1. [ ] (Unstable) Trade volume
-2. [ ] Available data centers
+2. [x] Available data centers
 3. [ ] Available worlds
 4. [ ] Game entities
 5. [ ] Least-recently updated items

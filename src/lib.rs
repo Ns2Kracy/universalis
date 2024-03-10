@@ -1,17 +1,20 @@
 pub mod api;
-pub mod client;
-pub mod error;
+
+pub const BASE_URL: &str = "https://universalis.app";
 
 #[cfg(test)]
 mod test {
+    use crate::api::v2::UniversalisV2;
+
     #[tokio::test]
     async fn get_trade_volume() {}
 
     #[tokio::test]
-    async fn test_get_available_data_centers() {}
-
-    #[tokio::test]
-    async fn get_available_data_centers() {}
+    async fn get_available_data_centers() {
+        let universalis = UniversalisV2::new();
+        let data_centers = universalis.get_available_data_centers().await.unwrap();
+        println!("{:?}", data_centers);
+    }
 
     #[tokio::test]
     async fn get_available_worlds() {}
@@ -48,7 +51,7 @@ mod test {
 
     #[tokio::test]
     async fn get_uploads_per_day() {}
-    
+
     #[tokio::test]
     async fn get_user_lists() {}
 }

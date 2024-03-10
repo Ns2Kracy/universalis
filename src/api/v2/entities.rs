@@ -146,13 +146,7 @@ pub struct CurrentlyShownView {
     pub units_sold: i32, // int32
 }
 
-/// See <https://docs.universalis.app/#schema-datacenter>
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct DataCenter {
-    pub name: Option<String>,
-    pub region: Option<String>,
-    pub worlds: Option<Vec<i32>>,
-}
+
 
 /// See <https://docs.universalis.app/#schema-historymultiviewv2>
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -414,18 +408,7 @@ pub struct TaxRatesView {
     pub old_sharlayan: i32, // int32
 }
 
-/// See <https://docs.universalis.app/#schema-tradevolumeview>
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct TradeVolumeView {
-    /// The i32 of units sold over the query interval.
-    pub units: i64, // int64
-    /// The total Gil exchanged over the query interval.
-    pub gil: i64, // int64
-    /// The start time for the query interval.
-    pub from: i64, // int64
-    /// The end time for the query interval.
-    pub to: i64, // int64
-}
+
 
 /// See <https://docs.universalis.app/#schema-uploadcounthistoryview>
 #[derive(Debug, Clone, Serialize, Deserialize)]
