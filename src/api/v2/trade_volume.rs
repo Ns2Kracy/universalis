@@ -1,13 +1,16 @@
+use derive_builder::Builder;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Builder, Clone, Serialize)]
+#[builder(setter(into))]
 pub struct GetTradeVolume {
-    pub world: String,
+    pub world: Option<String>,
     #[serde(rename = "dcName")]
-    pub dc_name: String,
-    pub item: i32,
-    pub from: i32,
-    pub to: i32,
+    pub dc_name: Option<String>,
+    pub item: Option<i32>,
+    pub from: Option<i32>,
+    #[builder(default = "Some(-1)")]
+    pub to: Option<i32>,
 }
 
 /// See <https://docs.universalis.app/#schema-tradevolumeview>

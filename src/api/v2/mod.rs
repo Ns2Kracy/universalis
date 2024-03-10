@@ -1,6 +1,10 @@
 use crate::BASE_URL;
 
-use self::{data_centers::DataCenter, trade_volume::GetTradeVolume};
+use self::{
+    data_centers::DataCenter,
+    entities::World,
+    trade_volume::{GetTradeVolume, TradeVolumeView},
+};
 
 pub mod content;
 pub mod data_centers;
@@ -39,7 +43,21 @@ impl UniversalisV2 {
     /// Retrieves the unit trade volume (total units sold)
     /// and Gil trade volume (total Gil exchanged) of the specified item over the provided period.
     /// Tax is not included in this calculation.
-    pub async fn get_trade_volume(&self, _params: GetTradeVolume) {}
+    pub async fn get_trade_volume(
+        &self,
+        params: GetTradeVolume,
+    ) -> anyhow::Result<TradeVolumeView> {
+        let url = format!("{}/api/v2/extra/stats/trade-volume", self.base_url);
+        let response = self
+            .client
+            .get(&url)
+            .query(&params)
+            .send()
+            .await?
+            .json()
+            .await?;
+        Ok(response)
+    }
 
     /// Available data centers
     ///
@@ -53,7 +71,11 @@ impl UniversalisV2 {
         Ok(response)
     }
 
-    pub async fn get_available_worlds(&self) {}
+    pub async fn get_available_worlds(&self) -> anyhow::Result<Vec<World>> {
+        let url = format!("{}/api/v2/worlds", self.base_url);
+        let response = self.client.get(&url).send().await?.json().await?;
+        Ok(response)
+    }
 
     pub async fn get_game_entities(&self) {}
 

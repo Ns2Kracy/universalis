@@ -17,7 +17,11 @@ mod test {
     }
 
     #[tokio::test]
-    async fn get_available_worlds() {}
+    async fn get_available_worlds() {
+        let universalis = UniversalisV2::new();
+        let worlds = universalis.get_available_worlds().await.unwrap();
+        println!("{:?}", worlds);
+    }
 
     #[tokio::test]
     async fn get_game_entities() {}
