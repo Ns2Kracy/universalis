@@ -11,7 +11,7 @@ use self::{
     upload_history::UploadCountHistoryView,
     uploader_upload_counts::SourceUploadCountView,
     user_lists::{GetUserLists, UserListView},
-    world_upload_counts::WorldUploadCountView,
+    world_upload_counts::WorldUploadCounts,
     worlds::World,
 };
 
@@ -280,9 +280,10 @@ impl UniversalisV2 {
     /// GET - /api/v2/extra/stats/world-upload-counts
     ///
     /// Returns the world upload counts and proportions of the total uploads for each world.
-    pub async fn get_world_upload_counts(&self) -> anyhow::Result<WorldUploadCountView> {
+    pub async fn get_world_upload_counts(&self) -> anyhow::Result<WorldUploadCounts> {
         let url = format!("{}/api/v2/extra/stats/world-upload-counts", self.base_url);
         let response = self.client.get(&url).send().await?.json().await?;
+
         Ok(response)
     }
 
