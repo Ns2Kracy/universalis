@@ -11,5 +11,8 @@ test:
 build-release:
     cargo build --release
 
+test-publish:
+    cargo publish --dry-run --registry crates-io
+
 publish:
     cargo publish --registry crates-io
