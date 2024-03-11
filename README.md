@@ -25,7 +25,7 @@ Endpoints
 10. [x] Most-recently updated items
 11. [x] Recently updated items
 12. [x] Upload counts by upload application
-13. [ ] Upload counts by world
+13. [x] Upload counts by world
 14. [x] Uploads per day
 15. [x] User lists
 

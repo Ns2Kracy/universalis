@@ -2,6 +2,11 @@
 name = "universalis"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "A Rust library for interacting with the Universalis API"
+homepage = "https://github.com/Ns2Kracy/universalis-rs"
+repository = "https://github.com/Ns2Kracy/universalis-rs"
+readme = "README.md"
 
 
 [dependencies]
