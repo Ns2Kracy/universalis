@@ -8,3 +8,5 @@ pub struct World {
     pub id: i32, // int32
     pub name: Option<String>,
 }
+
+pub enum Worlds {}

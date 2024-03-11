@@ -12,10 +12,10 @@ pub struct TaxRatesView {
     #[serde(rename = "Limsa Lominsa")]
     pub limsa_lominsa: i32, // int32
     /// The percent retainer tax in Gridania.
-    #[serde(rename = "Ul'dah")]
+    #[serde(rename = "Gridania")]
     pub gridania: i32, // int32
     /// The percent retainer tax in Ul'dah.
-    #[serde(rename = "UlDah")]
+    #[serde(rename = "Ul'dah")]
     pub uldah: i32, // int32
     /// The percent retainer tax in Ishgard.
     #[serde(rename = "Ishgard")]
