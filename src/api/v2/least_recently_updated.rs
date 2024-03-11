@@ -1,7 +1,13 @@
-/// Least-recently updated items
-///
-/// GET - /api/v2/extra/stats/least-recently-updated
-///
-/// Get the least-recently updated items on the specified world or data center,
-/// along with the upload times for each item.
-pub struct GetLeastRecentlyUpdatedItems {}
+use serde::Serialize;
+
+use super::most_recently_updated::MostRecentlyUpdatedItemsView;
+
+#[derive(Debug, Clone, Serialize)]
+pub struct GetLeastRecentlyUpdatedItems {
+    pub world: Option<String>,
+    #[serde(rename = "dcName")]
+    pub dc_name: Option<String>,
+    pub entries: Option<String>,
+}
+
+pub type LeastRecentlyUpdatedItemsView = MostRecentlyUpdatedItemsView;

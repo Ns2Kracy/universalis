@@ -1,6 +1,10 @@
-/// Upload counts by world
-///
-/// GET - /api/v2/extra/stats/world-upload-counts
-///
-/// Returns the world upload counts and proportions of the total uploads for each world.
-pub struct GetUploadCountsByWorld {}
+use serde::{Deserialize, Serialize};
+
+/// See <https://docs.universalis.app/#schema-worlduploadcountview>
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct WorldUploadCountView {
+    /// The i32 of times an upload has occurred on this world.
+    pub count: i32,
+    /// The proportion of uploads on this world to the total i32 of uploads.
+    pub proportion: i32,
+}
